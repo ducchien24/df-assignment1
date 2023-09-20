@@ -1,5 +1,5 @@
 // Your JS code goes here   
- var list_products=[
+var list_products=[
     {   id:"1",
         name: "Refactoring", 
         author: "Martin Fowler", 
@@ -28,20 +28,28 @@
      color:'black', 
      background:'#fff'
   }
-// biến
-    const btnAddBook=document.querySelector("#btnAdd");
-    const addBooksContainer= document.querySelector(".addBooksContainer");
-    const wrap=document.querySelector(".wrap");
-    const btnClose=document.querySelectorAll('span[class="closeButton"]');
-    let nameClose=''
-    const btnDeleteBook=document.querySelector("#deleteBook");
-    const deleteBooksContainer=document.querySelector(".deleteBooksContainer");
-;
-    let id =4 ;
-    const btnCreate=document.querySelector("#btnCreate");
-    const btnDelete=document.querySelector("#delete");
-    const btnCancel=document.querySelector("#cancel");
-    const nameConfirm=document.querySelector("#nameConfirm");
+  let nameClose=''
+  let id =4 ;
+
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document)
+const nameBookDelete=$("#nameBookDelete");
+// button
+    const btnAddBook=$("#btnAdd");
+    const btnDeleteBook=$("#deleteBook");
+    const btnClose=$$('span[class="closeButton"]');
+    const btnCreate=$("#btnCreate");
+    const btnDelete=$("#delete");
+    const btnCancel=$("#cancel");
+//form container
+    const wrap=$(".wrap");
+    const addBooksContainer= $(".addBooksContainer");
+    const deleteBooksContainer=$(".deleteBooksContainer");
+//input
+    const name =$("#name");
+    const author=$("#author");
+    const topic=$("#topic");
+    const search=$("#search-box");
 //<--------------------------------
   
 
@@ -57,9 +65,6 @@ btnCreate.onclick=(e)=>{
 }
 displayProducts(list_products); 
 function addBooks(){    
-var name =document.querySelector("#name");
-var author=document.querySelector("#author");
-var topic=document.querySelector("#topic");
     var newbook= getInfor(name.value,author.value,topic.value)
     if(!newbook) return;
     for(var p of list_products) {
@@ -104,7 +109,7 @@ try{
 //Displaybook  (Display books on the table) 
 function displayProducts(books)
 {
-    var vt = document.querySelector("#inforBooks");
+    var vt = $("#inforBooks");
     s=books.map((p)=>
     `<tr id="book${p.id}">
        <td>${p.name}</td>
@@ -117,7 +122,6 @@ function displayProducts(books)
 }
 //<-------------- SEARCH BOOK --------------->
 function searchBook(){
-    const search=document.querySelector("#search-box");
     const searchName=search.value;
     var books=list_products.filter((book)=> book.name.toLowerCase().includes(searchName.toLowerCase().trim()))
     displayProducts(books)
@@ -128,8 +132,8 @@ function searchBook(){
 function showDeleteBook(event,id,name){     
         event.preventDefault();
         nameClose="deleteBooksContainer";
-            nameConfirm.innerHTML=name;
-            console.log(name,nameConfirm);
+        nameBookDelete.innerHTML=name;
+            console.log(name,nameBookDelete);
         displayTag(deleteBooksContainer); 
         btnDelete.onclick=(e)=>
         {
