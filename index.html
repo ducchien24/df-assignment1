@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Bookstore</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+  </head>
+  <body>
+    <div class="wrap"></div>
+  <!-- Header -->
+    <header>
+        <div class="brand"><h1 class="name-brand">Bookstore</h1></div>
+        <div class="member">
+             <a><i class="fa-solid fa-user avt avt-user"></i>
+                <p>NEMO</p></a>   
+        </div>
+    </header>
+
+  <!-- Content -->
+   <div class="container">
+      <!-- Search+Add button-->
+        <div class="search" >
+              <input id="search-box" name="search" oninput="searchBook()" autocomplete="off" type="text" placeholder="Search books">
+              <button id="btnAdd" >Add book</button>
+        </div>
+      <!-- table -->
+      <div class="containerTable">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Author</th>
+              <th>Topic</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="inforBooks">
+            <!-- <tr>
+              <td>Refactoring</td>
+              <td>Martin Fowler</td>
+              <td>Programming</td>
+              <td>
+               <button id="deleteBook"><ins >Delete</ins></button> 
+              </td>
+            </tr> -->
+           </tbody>
+          </table>      
+        </div>
+      <!-- FormAdd -->
+        <div class="addBooksContainer">  
+          <h3  id="formTitle">Add book</h3>
+          <span class="closeButton" id="closeButtonAdd">X</span>
+          <form class="addBooksForm" action="#">
+             <div class="field-wrap">
+                  <label for="name">Name<span class="req">*</span></label>
+                  <input name='bookName' id="name" type="text" required autocomplete="off" />
+             </div> 
+             <div class="field-wrap">
+                  <label for="author">Author<span class="req">*</span></label>
+                  <input name="author" id="author" type="text" required autocomplete="off" />
+             </div> 
+             <div class="field-wrap">  
+                   <label for="topic" id="topiclabel">Topic</label>
+                   <select id="topic" name="topic">
+                       <option value="Programming">Programming</option>
+                       <option value="Database">Database</option>
+                       <option value="DevOps">DevOps</option>
+                    </select>
+              </div>
+            <button id="btnCreate">Create</button> 
+          </form>
+      </div>
+    <!-- FormDelete -->
+      <div class="deleteBooksContainer">
+        <div class="titleDelete">
+            <h3  id="titleDelete">Delete book</h3>
+            <span class="closeButton" id="closeButtonDelete">X</span>
+        </div> 
+        <div class="alert">
+            <p>Do you want to delete <b id="nameConfirm">Refactoring</b> book ?</p>
+        </div>
+        <div class="confirmDelete">
+            <button id="delete" class="delete" >Delete</button>
+            <button id="cancel" class="cancel" onmouseenter="myMoveFunction(event)" onmouseleave="myLeaveFunction(event)">Cancel</button>
+        </div>
+      </div>
+   </div >
+    <script src="script.js"></script>
+  </body>
+</html>
